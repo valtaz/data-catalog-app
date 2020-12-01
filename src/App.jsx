@@ -8,6 +8,7 @@ import NotFound from './templates/not_found';
 import Dataset from './templates/dataset';
 import ApiDocsSpecific from './templates/dataset/api';
 import Publishers from './templates/publishers';
+import DownloadTest from './templates/DownloadTest';
 import '@civicactions/data-catalog-components/dist/index.css';
 import './theme/index.scss';
 
@@ -28,6 +29,7 @@ function App() {
       <ApiDocsFull path="/api" />
       <Dataset path="/dataset/:id" />
       <ApiDocsSpecific path="/dataset/:id/api" />
+      <DownloadTest path="/download-test" />
     </Router>
   );
 }
