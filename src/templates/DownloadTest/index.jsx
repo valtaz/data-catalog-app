@@ -9,7 +9,7 @@ const DownloadTest = () => {
     async function queryDatastore() {
       return await axios({
         method: 'post',
-        url: `${process.env.REACT_APP_ROOT_URL}/datastore/query`,
+        url: `${process.env.REACT_APP_ROOT_URL}/datastore/query?format=csv`,
         data: {
           resources: [
             {
@@ -31,14 +31,21 @@ const DownloadTest = () => {
             //   "operator": "="
             // }
           ],
-          limit: 50,
+          // limit: 50,
           // offset: 50,
-        }
+        },
+        responseType: "blob"
       })
       .then((response) => {
         const { data } = response;
+        const url = window.URL.createObjectURL(new Blob([data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `${resourceId}.csv`); //or any other extension
+        document.body.appendChild(link);
+        link.click();
         setData(data);
-        console.table(data.results)
+        console.log(data.results)
       })
     }
     queryDatastore();
