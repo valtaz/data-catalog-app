@@ -4,7 +4,7 @@ import { Link } from '@reach/router';
 import Layout from '../../components/Layout';
 import config from "../../assets/config";
 import ResourceTemplate from "../../components/Resource";
-
+import { Spinner } from 'reactstrap';
 import {
   Text,
   Organization,
@@ -27,7 +27,6 @@ const Dataset = ({id, location}) => {
     async function getItem() {
       const { data } = await axios.get(`${process.env.REACT_APP_ROOT_URL}/metastore/schemas/dataset/items/${id}?show-reference-ids`);
       setItem(data);
-      console.log("item: ", item);
     }
     if (!state || !state.dataset) {
       getItem();
