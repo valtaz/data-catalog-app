@@ -8,6 +8,7 @@ import NotFound from './templates/not_found';
 import Dataset from './templates/dataset';
 import ApiDocsSpecific from './templates/dataset/api';
 import Publishers from './templates/publishers';
+import FilteredResource from './templates/FilteredResource';
 import './theme/index.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -27,6 +28,7 @@ function App() {
       <ApiDocsFull path="/api" />
       <Dataset path="/dataset/:id" />
       <ApiDocsSpecific path="/dataset/:id/api" />
+      <FilteredResource path="/dataset/:id/:dist_id" />
     </Router>
   );
 }
