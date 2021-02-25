@@ -1,6 +1,6 @@
 import React from 'react';
 import { DataTable } from '@civicactions/data-catalog-components';
-import { ResourceDispatch } from '@civicactions/data-catalog-services';
+import { ResourceDispatch, transformTableFilterToQueryCondition, transformTableSortToQuerySort } from '@civicactions/data-catalog-services';
 
 export function prepareColumns(columns, schema) {
   return columns.map((column) => ({
@@ -21,6 +21,10 @@ const ResourceContent = ({id}) => {
         limit={value.limit}
         offset={value.offset}
         loading={value.loading}
+        setSort={value.actions.setSort}
+        setConditions={value.actions.setConditions}
+        conditionsTransform={transformTableFilterToQueryCondition}
+        sortTransform={transformTableSortToQuerySort}
       />
     </div>
   )
