@@ -21,7 +21,7 @@ const Layout = ({
           "lang": "en"
         }}
       />
-      <Header site={config.site} slogan={config.slogan} customClasses={config.container} />
+      <Header logo={config.logo} site={config.site} slogan={config.slogan} customClasses={config.container} />
       <NavBar
         navItems={links.main.map(item => (
           <Link activeClassName="active" to={item.url}>
